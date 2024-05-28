@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "tb_categoria")
 public class Categoria {
@@ -15,6 +17,7 @@ public class Categoria {
     private String nome;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("categoria")
     private List<Produtos> produtos;
 
     // Getters and Setters

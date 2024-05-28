@@ -1,5 +1,7 @@
 package com.loja.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,8 +18,7 @@ public class Produtos {
     private Double preco;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    @NotBlank
+    @JsonIgnoreProperties("produtos")
     private Categoria categoria;
 
     // Getters and Setters
